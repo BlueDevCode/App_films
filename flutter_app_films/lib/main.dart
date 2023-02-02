@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
+    
       title: 'Films',
       initialRoute: "home",
       routes: {
@@ -19,7 +20,11 @@ class MyApp extends StatelessWidget {
 
 
       },
-      
+      theme: ThemeData.light().copyWith(
+        appBarTheme: const AppBarTheme(
+          color:Colors.red,
+        )
+      )
     );
   }
 }
