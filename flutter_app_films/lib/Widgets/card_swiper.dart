@@ -21,12 +21,16 @@ child: Swiper(
   itemWidth: size.width * 0.6,
   itemHeight: size.height * 0.9, 
   itemBuilder: ( _ , int index){
-    return const FadeInImage(
+    return  ClipRRect(
+      borderRadius: BorderRadius.circular(20),
 
-      placeholder:NetworkImage("https://via.placeholder.com/300x400"),
-      image: NetworkImage("https://via.placeholder.com/300x400"),
-       
-       );
+      child:const FadeInImage(
+    
+        placeholder: AssetImage("assets/imagenes/no-image.jpg"),
+        image: NetworkImage("https://via.placeholder.com/300x400"),
+         fit: BoxFit.cover,
+         ),
+    );
 
 
 
