@@ -16,7 +16,15 @@ class DetailsScreen extends StatelessWidget {
       
       body: CustomScrollView(
         slivers: [
-          _CustomAppbar()
+          _CustomAppbar(),
+          SliverList(
+            delegate: SliverChildListDelegate([
+            const _PosterAndTitle()
+
+
+            ])
+            )
+
 
         ],
       )
@@ -24,6 +32,7 @@ class DetailsScreen extends StatelessWidget {
   }
 }
 class  _CustomAppbar extends StatelessWidget {
+
 
 
   @override
@@ -55,4 +64,28 @@ fit:BoxFit.cover,
 
     );
   }
+}
+
+class _PosterAndTitle extends StatelessWidget {
+  const _PosterAndTitle ({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+    margin:const EdgeInsets.only(top:20),
+    padding:const EdgeInsets.symmetric(horizontal:20),
+    child: Row(
+   children: [
+    ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: const FadeInImage(
+       placeholder: AssetImage("assets/no-image.jpg"),
+       image: NetworkImage ("https://via.placeholder.com/200x300")
+       
+       ),
+ )
+ ]
+ ),
+ );
+}
 }
