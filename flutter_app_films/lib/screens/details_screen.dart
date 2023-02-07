@@ -11,7 +11,6 @@ import 'package:flutter_app_films/Widgets/widgets.dart';
          @override
          Widget build(BuildContext context) {
 
-         final String movie = ModalRoute.of(context)?.settings.arguments.toString() ?? "no-movie";
     
         return Scaffold(
       
@@ -20,10 +19,10 @@ import 'package:flutter_app_films/Widgets/widgets.dart';
              _CustomAppbar(),
               SliverList(
                delegate: SliverChildListDelegate([
-                const _PosterAndTitle(),
-               const  _OverView(),
-               const  _OverView(),
-               const  _OverView(),   
+               _PosterAndTitle(),
+                _OverView(),
+              _OverView(),
+               _OverView(),   
                const CastingCards(),
                ])
               )
@@ -68,7 +67,7 @@ import 'package:flutter_app_films/Widgets/widgets.dart';
           }
 
             class _PosterAndTitle extends StatelessWidget {
-             const _PosterAndTitle ({super.key});
+             
 
              @override
               Widget build(BuildContext context) {
@@ -84,7 +83,7 @@ import 'package:flutter_app_films/Widgets/widgets.dart';
             borderRadius: BorderRadius.circular(20),
             child: const FadeInImage(
             placeholder: AssetImage("assets/no-image.jpg"),
-            image: NetworkImage ("https://via.placeholder.com/200x300"),
+            image: NetworkImage ("https://via.placeholder.com/150x300"),
              height: 150,
            ),
          ),
@@ -111,7 +110,7 @@ import 'package:flutter_app_films/Widgets/widgets.dart';
     }
 
 class _OverView extends StatelessWidget {
-  const _OverView ({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
