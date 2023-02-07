@@ -51,6 +51,7 @@ import 'package:flutter_app_films/Widgets/widgets.dart';
                 title: Container(
                 width: double.infinity,
                 alignment: Alignment.bottomCenter,
+                padding: EdgeInsets.only(bottom:10),
                 color: Colors.black12,
                 child: const Text("movie.title",style: TextStyle(fontSize:16),
                              ),
