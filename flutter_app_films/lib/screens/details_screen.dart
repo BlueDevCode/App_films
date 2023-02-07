@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_films/Widgets/widgets.dart';
 
         class DetailsScreen extends StatelessWidget {
         const DetailsScreen({super.key});
@@ -19,9 +20,11 @@ import 'package:flutter/material.dart';
              _CustomAppbar(),
               SliverList(
                delegate: SliverChildListDelegate([
-                const _PosterAndTitle()
-
-
+                const _PosterAndTitle(),
+               const  _OverView(),
+               const  _OverView(),
+               const  _OverView(),   
+               const CastingCards(),
                ])
               )
 
@@ -101,8 +104,30 @@ import 'package:flutter/material.dart';
                    )
                    ],
                 )
-              ],
-       ),
+              ]
+          ),
+        );
+      }
+    }
+
+class _OverView extends StatelessWidget {
+  const _OverView ({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 30),
+      padding: const EdgeInsets.symmetric(horizontal:30,vertical: 10 ),
+      child: Text("Nullercitatiuis nostrud dolore nulla anim mollit esse amet. Commodo sit est consectetur incididunt laborum dolore culpa pariatur ex sunt labore. In fugiat consectetur ut nulla ut cillum exercitation est reprehenderit consectetur excepteur incididunt ad labore.",
+      textAlign: TextAlign.justify,
+      style: Theme.of(context).textTheme.subtitle1
+      ),
+   
+ 
     );
   }
 }
+
+
+
+
