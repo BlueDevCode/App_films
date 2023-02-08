@@ -40,7 +40,7 @@ import 'package:flutter_app_films/Widgets/widgets.dart';
           @override
           Widget build(BuildContext context) {
             return  SliverAppBar(
-               backgroundColor: Colors.green,
+               backgroundColor: Colors.purpleAccent,
                expandedHeight: 200,
               floating: false,
               pinned:true,
@@ -51,7 +51,7 @@ import 'package:flutter_app_films/Widgets/widgets.dart';
                 title: Container(
                 width: double.infinity,
                 alignment: Alignment.bottomCenter,
-                padding: EdgeInsets.only(bottom:10),
+                padding: const EdgeInsets.only(bottom:10),
                 color: Colors.black12,
                 child: const Text("movie.title",style: TextStyle(fontSize:16),
                              ),
