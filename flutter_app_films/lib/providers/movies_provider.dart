@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_films/models/models.dart';
 import 'package:http/http.dart' as http;
 
 class MoviesProvider extends ChangeNotifier{
@@ -27,9 +28,10 @@ MoviesProvider(){
   });
 
 final response = await http.get(url);
+ final   nowPlayingResponse  =    NowPlayingResponse.fromJson(response.body);
 final Map<String, dynamic>    decodeData = json.decode(response.body);
 
-print(decodeData["results"]);
+print(nowPlayingResponse.results[2].title);
 
  }
 }
