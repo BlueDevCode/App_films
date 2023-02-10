@@ -36,7 +36,12 @@ final moviesProvider = Provider.of<MoviesProvider>(context);
       child:  Column(
         children:  [
       CardSwiper( movies : moviesProvider.onDisplayMovies),
-      const MovieSlider()
+       MovieSlider(
+       movies: moviesProvider.onDisplayMovies,
+            
+        title: "Popular"
+
+      )
 
       ],)
       
