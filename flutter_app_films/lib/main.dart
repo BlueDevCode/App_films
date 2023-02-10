@@ -1,4 +1,4 @@
-import 'package:flutter_app_films/providers/movie_provider.dart';
+import 'package:flutter_app_films/providers/movies_provider.dart';
 import 'package:flutter_app_films/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
