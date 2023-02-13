@@ -18,7 +18,7 @@ int _popularPage = 0;
 MoviesProvider(){
  
    getOnDisplayMovies();
-   getPopularMovies() => null;
+   //getPopularMovies() => null;
 }
    Future<String>_getJsonData (String endpoint, [int page = 1   ]) async{
   var url = Uri.https(_baseUrl,endpoint,{
