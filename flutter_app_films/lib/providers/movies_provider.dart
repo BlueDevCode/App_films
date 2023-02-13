@@ -33,7 +33,7 @@ MoviesProvider(){
 
 final response = await http.get(url);
  final   nowPlayingResponse  =    NowPlayingResponse.fromJson(response.body);
-final Map<String, dynamic>    decodeData = json.decode(response.body);
+final Map<String, dynamic>  decodeData = json.decode(response.body);
 
 
 
