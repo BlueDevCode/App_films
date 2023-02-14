@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 class Movie {
+  
+
     Movie({
         required this.adult,
                  this.backdropPath,
@@ -33,7 +35,7 @@ class Movie {
     double    voteAverage;
     int       voteCount;
 
-
+  String? heroId;
     get fullPosterImg {
 
 if (posterPath != null ) {
@@ -64,5 +66,7 @@ if (posterPath != null ) {
         voteAverage:       json["vote_average"]?.toDouble(),
         voteCount:         json["vote_count"],
     );
+
+
 
 }
