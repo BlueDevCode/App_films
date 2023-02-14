@@ -20,10 +20,10 @@ import '../models/models.dart';
       
            body: CustomScrollView(
            slivers: [
-             _CustomAppbar(),
+             _CustomAppbar (movie),
               SliverList(
                delegate: SliverChildListDelegate([
-               _PosterAndTitle(),
+               _PosterAndTitle( movie ),
                 _OverView(),
               _OverView(),
                _OverView(),   
@@ -39,12 +39,15 @@ import '../models/models.dart';
        }
         class  _CustomAppbar extends StatelessWidget {
 
+       final Movie movie;
+
+      const _CustomAppbar(  this.movie);
 
 
           @override
           Widget build(BuildContext context) {
             return  SliverAppBar(
-               backgroundColor: Colors.purpleAccent,
+               backgroundColor: Colors.black,
                expandedHeight: 200,
               floating: false,
               pinned:true,
@@ -57,13 +60,15 @@ import '../models/models.dart';
                 alignment: Alignment.bottomCenter,
                 padding: const EdgeInsets.only(bottom:10),
                 color: Colors.black12,
-                child: const Text("movie.title",style: TextStyle(fontSize:16),
+                child:  Text(
+                     movie.title,
+                     style: const TextStyle(fontSize:16),
                              ),
                ),
-                  background: const FadeInImage(
+                  background:  FadeInImage(
                   placeholder: AssetImage("assets/loading.gif"),
-                  image: NetworkImage ("https://via.placeholder.com/500x300"),
-                     fit:BoxFit.cover,
+                  image: NetworkImage (movie.fullPosterImg),
+                     fit:BoxFit.scaleDown,
                   ),
               )
 
@@ -73,6 +78,10 @@ import '../models/models.dart';
 
             class _PosterAndTitle extends StatelessWidget {
              
+            final Movie movie;
+            
+        const _PosterAndTitle(this.movie);
+
 
              @override
               Widget build(BuildContext context) {
@@ -86,9 +95,9 @@ import '../models/models.dart';
            children: [
          ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: const FadeInImage(
-            placeholder: AssetImage("assets/no-image.jpg"),
-            image: NetworkImage ("https://via.placeholder.com/150x300"),
+            child:  FadeInImage(
+            placeholder: const AssetImage("assets/no-image.jpg"),
+            image: NetworkImage (movie.fullPosterImg),
              height: 150,
            ),
          ),
@@ -98,12 +107,12 @@ import '../models/models.dart';
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
 
-                  Text("movie.title",style:textTheme.headline5,overflow: TextOverflow.ellipsis,maxLines: 2,),
-                  Text ("movie.originalTitle",style:textTheme.subtitle1,overflow: TextOverflow.ellipsis,),
+                  Text(movie.title,style:textTheme.headline5,overflow: TextOverflow.ellipsis,maxLines: 2,),
+                  Text (movie.originalTitle,style:textTheme.subtitle1,overflow: TextOverflow.ellipsis,),
                   Row(
                   children:  [
                   const Icon (Icons.star_outline, size: 15, color:Colors.grey),
-                  Text("movie.voteAvarage", style:textTheme.caption),
+                  Text('${movie.voteAverage}', style:textTheme.caption),
                    ],
                    )
                    ],

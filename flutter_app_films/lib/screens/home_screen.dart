@@ -24,7 +24,7 @@ final moviesProvider = Provider.of<MoviesProvider>(context);
       backgroundColor: const Color.fromARGB(255, 235, 204, 241),
       appBar: AppBar(
         title: const Text("Movies"),
-        shadowColor: Color.fromARGB(22, 1, 1, 32),
+       
         elevation: 0,
         actions: [
           IconButton(

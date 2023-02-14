@@ -3,16 +3,21 @@ import 'dart:convert';
 class Movie {
   
 
+ 
+
+  
+  
+
     Movie({
         required this.adult,
-                 this.backdropPath,
+            this.backdropPath,
         required this.genreIds,
         required this.id,
         required this.originalLanguage,
         required this.originalTitle,
         required this.overview,
         required this.popularity,
-                 this.posterPath,
+      required    this.posterPath,
                  this.releaseDate,
         required this.title,
         required this.video,
@@ -21,18 +26,18 @@ class Movie {
     });
 
     bool      adult;
-    String?   backdropPath;
+   String?  backdropPath;
     List<int> genreIds;
     int       id;
     String    originalLanguage;
     String    originalTitle;
     String    overview;
     double    popularity;
-    String?   posterPath;
+    String ?   posterPath;
     String?   releaseDate;
     String    title;
     bool      video;
-    double    voteAverage;
+    double   voteAverage;
     int       voteCount;
 
   String? heroId;
@@ -66,6 +71,9 @@ if (posterPath != null ) {
         voteAverage:       json["vote_average"]?.toDouble(),
         voteCount:         json["vote_count"],
     );
+
+  
+  
 
 
 
