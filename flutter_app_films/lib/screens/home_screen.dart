@@ -21,6 +21,7 @@ final moviesProvider = Provider.of<MoviesProvider>(context);
 
 
     return  Scaffold(
+      backgroundColor: Color.fromARGB(255, 235, 204, 241),
       appBar: AppBar(
         title: const Text("Movies"),
         elevation: 0,
@@ -31,9 +32,10 @@ final moviesProvider = Provider.of<MoviesProvider>(context);
          )
         ],
       ),
-      body: SingleChildScrollView(
+      body:SingleChildScrollView(
 
       child:  Column(
+      
         children:  [
       CardSwiper( movies : moviesProvider.onDisplayMovies),
        MovieSlider(
