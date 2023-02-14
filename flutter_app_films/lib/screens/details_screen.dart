@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_films/Widgets/widgets.dart';
 
+import '../models/models.dart';
+
         class DetailsScreen extends StatelessWidget {
         const DetailsScreen({super.key});
 
@@ -11,6 +13,8 @@ import 'package:flutter_app_films/Widgets/widgets.dart';
          @override
          Widget build(BuildContext context) {
 
+    final Movie movie= ModalRoute.of(context)!.settings.arguments as Movie ;
+    
     
         return Scaffold(
       
