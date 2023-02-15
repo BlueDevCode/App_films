@@ -60,19 +60,23 @@ import '../models/models.dart';
                 centerTitle: true,
                 titlePadding: const EdgeInsets.all(0),
                 title: Container(
+                
                 width: double.infinity,
                 alignment: Alignment.bottomCenter,
-                padding: const EdgeInsets.only(bottom:10),
+                padding: const EdgeInsets.only(bottom:10,left: 10,right: 20),
                 color: Colors.black12,
                 child:  Text(
                      movie.title,
                      style: const TextStyle(fontSize:16),
+                     textAlign: TextAlign.center,
                              ),
                ),
+                  
                   background:  FadeInImage(
+                    
                   placeholder: const AssetImage("assets/loading.gif"),
                   image: NetworkImage  (movie.fullPosterImg ),
-                     fit:BoxFit.contain
+                     fit:BoxFit.cover
                   ),
               )
 
