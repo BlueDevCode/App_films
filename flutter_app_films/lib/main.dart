@@ -47,7 +47,9 @@ class MyApp extends StatelessWidget {
       ).copyWith(
         
         appBarTheme: const AppBarTheme(
-          color:Colors.purpleAccent,
+          color:Colors.deepPurple
+          
+
         )
       )
     );

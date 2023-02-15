@@ -17,8 +17,11 @@ import '../models/models.dart';
     
     
         return Scaffold(
+      backgroundColor:  Color.fromARGB(255, 240, 221, 244),
       
-           body: CustomScrollView(
+           body: 
+           
+           CustomScrollView(
            slivers: [
              _CustomAppbar (movie),
               SliverList(
@@ -51,6 +54,7 @@ import '../models/models.dart';
           @override
           Widget build(BuildContext context) {
             return  SliverAppBar(
+
                backgroundColor: Colors.black,
                expandedHeight: 200,
               floating: false,
