@@ -24,9 +24,13 @@ import '../models/models.dart';
               SliverList(
                delegate: SliverChildListDelegate([
                _PosterAndTitle( movie ),
-                _OverView(),
-              _OverView(),
-               _OverView(),   
+             
+               const SizedBox(height: 10),
+            
+               _OverView(movie),   
+
+                 const SizedBox(height: 0),
+            
                const CastingCards(),
                ])
               )
@@ -66,9 +70,9 @@ import '../models/models.dart';
                              ),
                ),
                   background:  FadeInImage(
-                  placeholder: AssetImage("assets/loading.gif"),
-                  image: NetworkImage (movie.fullPosterImg),
-                     fit:BoxFit.scaleDown,
+                  placeholder: const AssetImage("assets/loading.gif"),
+                  image: NetworkImage  (movie.fullPosterImg ),
+                     fit:BoxFit.contain
                   ),
               )
 
@@ -87,7 +91,7 @@ import '../models/models.dart';
               Widget build(BuildContext context) {
 
               final TextTheme textTheme = Theme.of(context).textTheme;
-
+              final size = MediaQuery.of(context).size;
      return Container(
            margin:const EdgeInsets.only(top:20),
            padding:const EdgeInsets.symmetric(horizontal:20),
@@ -103,19 +107,21 @@ import '../models/models.dart';
          ),
 
              const SizedBox(width: 20),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-
-                  Text(movie.title,style:textTheme.headline5,overflow: TextOverflow.ellipsis,maxLines: 2,),
-                  Text (movie.originalTitle,style:textTheme.subtitle1,overflow: TextOverflow.ellipsis,),
-                  Row(
-                  children:  [
-                  const Icon (Icons.star_outline, size: 15, color:Colors.grey),
-                  Text('${movie.voteAverage}', style:textTheme.caption),
-                   ],
-                   )
-                   ],
+                ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: size.width -190),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(movie.title,style:textTheme.headline5,overflow: TextOverflow.ellipsis,maxLines: 2,),
+                      Text (movie.originalTitle,style:textTheme.subtitle1,overflow: TextOverflow.ellipsis,),
+                    Row(
+                    children:  [
+                    const Icon (Icons.star_outline, size: 15, color:Colors.grey),
+                    Text('${movie.voteAverage}', style:textTheme.caption),
+                     ],
+                     )
+                     ],
+                  ),
                 )
               ]
           ),
@@ -125,13 +131,18 @@ import '../models/models.dart';
 
 class _OverView extends StatelessWidget {
   
+final Movie movie;
+
+  const _OverView(this.movie);
+
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 30),
       padding: const EdgeInsets.symmetric(horizontal:30,vertical: 10 ),
-      child: Text("Nullercitatiuis nostrud dolore nulla anim mollit esse amet. Commodo sit est consectetur incididunt laborum dolore culpa pariatur ex sunt labore. In fugiat consectetur ut nulla ut cillum exercitation est reprehenderit consectetur excepteur incididunt ad labore.",
+      child: Text(
+       movie.overview,
       textAlign: TextAlign.justify,
       style: Theme.of(context).textTheme.subtitle1
       ),
