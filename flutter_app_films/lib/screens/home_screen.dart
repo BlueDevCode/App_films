@@ -21,7 +21,7 @@ final moviesProvider = Provider.of<MoviesProvider>(context);
 
 
     return  Scaffold(
-      backgroundColor: Color.fromARGB(255, 240, 221, 244),
+      backgroundColor: const Color.fromARGB(255, 240, 221, 244),
       appBar: AppBar(
         title: const Text("Movies"),
        

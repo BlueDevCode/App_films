@@ -13,6 +13,8 @@ final String _language = "en-EN";
 List<Movie> onDisplayMovies = [];
 List<Movie> popularMovies = [];
 
+Map<int, List<Cast>>moviesCast = {};
+
 int _popularPage = 0;
 
 MoviesProvider(){
@@ -53,4 +55,22 @@ final jsonData = await _getJsonData("3/movie/now_playing",_popularPage );
 popularMovies = [...popularMovies, ...popularResponse.results];
 notifyListeners();
 }
+
+
+
+Future < List<Cast>> getMovieCast( int movieId) async{
+
+
+
+  final jsonData = await _getJsonData("3/movie/$movieId/credits");
+ final creditsResponse = CreditsResponse.fromJson(jsonData);
+   
+moviesCast[ movieId] = creditsResponse.cast;
+
+return creditsResponse.cast;
+}
+
+
+
+
 }

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app_films/Widgets/widgets.dart';
+import 'package:flutter_app_films/models/credits_response.dart';
 
 import '../models/models.dart';
 
@@ -17,7 +18,7 @@ import '../models/models.dart';
     
     
         return Scaffold(
-      backgroundColor:  Color.fromARGB(255, 240, 221, 244),
+      backgroundColor:  const Color.fromARGB(255, 240, 221, 244),
       
            body: 
            
@@ -34,7 +35,7 @@ import '../models/models.dart';
 
                  const SizedBox(height: 0),
             
-               const CastingCards(),
+               CastingCards(movie.id),
                ])
               )
 
@@ -48,7 +49,7 @@ import '../models/models.dart';
 
        final Movie movie;
 
-      const _CustomAppbar(  this.movie);
+      const _CustomAppbar( this.movie);
 
 
           @override
@@ -79,7 +80,7 @@ import '../models/models.dart';
                   background:  FadeInImage(
                     
                   placeholder: const AssetImage("assets/loading.gif"),
-                  image: NetworkImage  (movie.fullPosterImg ),
+                  image: NetworkImage  (movie.fullBackdropPath),
                      fit:BoxFit.cover
                   ),
               )

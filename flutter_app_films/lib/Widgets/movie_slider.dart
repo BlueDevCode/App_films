@@ -24,7 +24,7 @@ class _MovieSliderState extends State<MovieSlider> {
   scrollController.addListener(() {
     if(scrollController.position.pixels >= scrollController.position.maxScrollExtent -500){
    widget.onNextPage();
-   print(scrollController.position.maxScrollExtent);
+   
   }
   });
   
