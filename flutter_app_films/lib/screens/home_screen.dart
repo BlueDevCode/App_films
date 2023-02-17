@@ -1,9 +1,7 @@
 
-
-
-
 import '../providers/movies_provider.dart';
 import '../Widgets/widgets.dart';
+import 'package:flutter_app_films/search/search_delegate.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +27,7 @@ final moviesProvider = Provider.of<MoviesProvider>(context);
         actions: [
           IconButton(
           icon: const Icon(Icons.search_outlined),
-          onPressed:(){}
+          onPressed:() => showSearch(context: context, delegate: MovieSearchDelegate() )
          )
         ],
       ),
