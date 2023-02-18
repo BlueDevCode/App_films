@@ -2,8 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app_films/Widgets/widgets.dart';
-import 'package:flutter_app_films/models/credits_response.dart';
-
 import '../models/models.dart';
 
         class DetailsScreen extends StatelessWidget {

@@ -7,15 +7,17 @@ import '../models/movie.dart';
 import '../providers/movies_provider.dart';
 
 class MovieSearchDelegate extends SearchDelegate {
-
+ 
   @override
-  String get searchFieldLabel => 'Buscar película';
+  String get searchFieldLabel => 'Search movie';
 
   @override
   List<Widget> buildActions(BuildContext context) {
+    
       return [
         IconButton(
-          icon: Icon( Icons.clear ),
+          color: Colors.purpleAccent,
+          icon: const Icon( Icons.clear ),
           onPressed: () => query = '',
         )
       ];
@@ -24,7 +26,7 @@ class MovieSearchDelegate extends SearchDelegate {
     @override
     Widget buildLeading(BuildContext context) {
       return IconButton(
-        icon: Icon( Icons.arrow_back ),
+        icon: const Icon( Icons.arrow_back ),
         onPressed: () {
           close(context, null );
         },
@@ -34,15 +36,14 @@ class MovieSearchDelegate extends SearchDelegate {
     @override
     Widget buildResults(BuildContext context) {
       
-      return Text('buildResults');
+      return const Text('buildResults');
     }
 
     Widget _emptyContainer() {
-      return Container(
-          child: Center(
-            child: Icon( Icons.movie_creation_outlined, color: Colors.black38, size: 130, ),
-          ),
-        );
+      return const Center(
+
+        child: Icon( Icons.movie_creation_outlined, color: Colors.black38, size: 130, ),
+      );
     }
   
     @override
@@ -56,8 +57,8 @@ class MovieSearchDelegate extends SearchDelegate {
       moviesProvider.getSuggestionsByQuery( query );
 
 
-      return StreamBuilder(
-        stream: moviesProvider.suggestionStream,
+      return FutureBuilder(
+        future: moviesProvider.searchMovies(query),
         builder: ( _, AsyncSnapshot<List<Movie>> snapshot) {
           
           if( !snapshot.hasData ) return _emptyContainer();
@@ -70,10 +71,18 @@ class MovieSearchDelegate extends SearchDelegate {
           );
         },
       );
-
+ @override
+     ThemeData appBarTheme(BuildContext context){
+      return ThemeData(
+        appBarTheme: const AppBarTheme(
+          color: Colors.amber
+        )
+      );
+     }
+  }
   }
 
-}
+
 
 
 class _MovieItem extends StatelessWidget {
@@ -91,7 +100,7 @@ class _MovieItem extends StatelessWidget {
       leading: Hero(
         tag: movie.heroId!,
         child: FadeInImage(
-          placeholder: AssetImage('assets/no-image.jpg'), 
+          placeholder: const AssetImage('assets/no-image.jpg'), 
           image: NetworkImage( movie.fullPosterImg ),
           width: 50,
           fit: BoxFit.contain,

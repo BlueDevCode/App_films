@@ -1,8 +1,3 @@
-
-// To parse this JSON data, do
-//
-//     final searchResponse = searchResponseFromMap(jsonString);
-
 import 'dart:convert';
 import 'movie.dart';
 
@@ -27,4 +22,5 @@ class SearchResponse {
         totalPages: json["total_pages"],
         totalResults: json["total_results"],
     );
+
 }

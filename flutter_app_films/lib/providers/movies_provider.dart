@@ -63,9 +63,9 @@ notifyListeners();
 
 Future < List<Cast>> getMovieCast( int movieId) async{
 
+ if( moviesCast.containsKey(movieId) ) return moviesCast[movieId]!;
 
-
-  final jsonData = await _getJsonData("3/movie/$movieId/credits");
+ final jsonData = await _getJsonData("3/movie/$movieId/credits");
  final creditsResponse = CreditsResponse.fromJson(jsonData);
    
 moviesCast[ movieId] = creditsResponse.cast;
@@ -83,7 +83,7 @@ Future< List<Movie>> searchMovies (String query)async {
   });
 
 final response = await http.get(url);
-final searchResponse = SearchResponse.fromJson(response.body)    ;
+final searchResponse = SearchResponse.fromJson(response.body);
 return searchResponse.results;
 
 }
