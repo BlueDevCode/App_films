@@ -7,7 +7,19 @@ import '../models/movie.dart';
 import '../providers/movies_provider.dart';
 
 class MovieSearchDelegate extends SearchDelegate {
- 
+  
+  @override
+  
+  ThemeData appBarTheme(BuildContext context){
+    final ThemeData theme = Theme.of(context);
+    return theme.copyWith(
+      appBarTheme: theme.appBarTheme.copyWith(
+        color: Colors.deepPurple,
+      ),
+      scaffoldBackgroundColor: const Color.fromARGB(255, 240, 221, 244),
+      
+    );
+  }
   @override
   String get searchFieldLabel => 'Search movie';
 
@@ -40,8 +52,8 @@ class MovieSearchDelegate extends SearchDelegate {
     }
 
     Widget _emptyContainer() {
-      return const Center(
-
+       
+      return const Center(  
         child: Icon( Icons.movie_creation_outlined, color: Colors.black38, size: 130, ),
       );
     }
