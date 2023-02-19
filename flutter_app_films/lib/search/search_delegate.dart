@@ -16,7 +16,7 @@ class MovieSearchDelegate extends SearchDelegate {
     
       return [
         IconButton(
-          color: Colors.purpleAccent,
+          
           icon: const Icon( Icons.clear ),
           onPressed: () => query = '',
         )
@@ -71,18 +71,10 @@ class MovieSearchDelegate extends SearchDelegate {
           );
         },
       );
- @override
-     ThemeData appBarTheme(BuildContext context){
-      return ThemeData(
-        appBarTheme: const AppBarTheme(
-          color: Colors.amber
-        )
-      );
-     }
-  }
+
   }
 
-
+}
 
 
 class _MovieItem extends StatelessWidget {
