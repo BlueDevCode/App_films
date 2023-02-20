@@ -11,8 +11,8 @@ class MovieSearchDelegate extends SearchDelegate {
   @override
   
   ThemeData appBarTheme(BuildContext context){
-    final ThemeData theme = Theme.of(context);
-    return theme.copyWith(
+   final ThemeData theme = Theme.of(context);
+   return theme.copyWith(
       appBarTheme: theme.appBarTheme.copyWith(
         color: Colors.deepPurple,
       ),
