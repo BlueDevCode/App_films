@@ -1,13 +1,5 @@
 # App_films
 
-💙 Flutter/ Dart 
-💜 App movie
-- MovieSlider
-- Swiper
-- The movieDB backend
-- Provider and package HTTP
-- SearchDelegate
-- etc..
 
 
-https://github.com/BlueDevCode/App_films/issues/1#issue-1609724197
+https://user-images.githubusercontent.com/124080723/222897686-680b85d3-32fe-479b-a9b1-66cf031798b9.mp4
