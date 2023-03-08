@@ -4,7 +4,7 @@
 - MovieSlider
 - Swiper
 - The movieDB backend
-- Provider and package HTTp
+- Provider and package HTPP
 - SearchDelegate
 - etc..
 
